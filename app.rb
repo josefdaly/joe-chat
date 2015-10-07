@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra-websocket'
+require 'json'
 
 
 class ChatApp < Sinatra::Application
@@ -18,16 +19,40 @@ class ChatApp < Sinatra::Application
       erb :index
     else
       request.websocket do |ws|
+
         ws.onopen do
-          ws.send("Hello from the server!")
+          # ws.send(
+          #   {
+          #
+          #     "Hello from the server!"
+          #   }
+          # )
           if settings.sockets[path]
             settings.sockets[path].push(ws)
           else
             settings.sockets[path] = [ws]
           end
         end
+
         ws.onmessage do |msg|
-          EM.next_tick { settings.sockets[path].each{ |s| s.send(msg) } }
+          EM.next_tick {
+            msg = JSON.parse(msg)
+            if msg['type'] == 'update-request'
+              settings.sockets[path].each do |s|
+
+              end
+            elsif msg['type'] == 'group-message'
+              settings.sockets[path].each do |s|
+                s.send(
+                  {
+                    type: 'group-message',
+                    sender: msg['sender'],
+                    content: msg['content']
+                  }.to_json
+                )
+              end
+            end
+          }
         end
         ws.onclose do
           warn("websocket closed")
