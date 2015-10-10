@@ -21,12 +21,6 @@ class ChatApp < Sinatra::Application
       request.websocket do |ws|
 
         ws.onopen do
-          # ws.send(
-          #   {
-          #
-          #     "Hello from the server!"
-          #   }
-          # )
           if settings.sockets[path]
             settings.sockets[path].push(ws)
           else
@@ -38,8 +32,14 @@ class ChatApp < Sinatra::Application
           EM.next_tick {
             msg = JSON.parse(msg)
             if msg['type'] == 'update-request'
+              num_users = settings.sockets[path].count
               settings.sockets[path].each do |s|
-
+                s.send(
+                 {
+                   type: 'status-update',
+                   num_users: num_users
+                 }.to_json
+                )
               end
             elsif msg['type'] == 'group-message'
               settings.sockets[path].each do |s|
