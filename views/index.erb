@@ -70,8 +70,8 @@
           };
 
           setInterval(function(){
-            console.log($(':focus').prop('tagName'))
-          }.bind(this), 1000)
+            ws.send(JSON.stringify({ 'type': 'update-request' }));
+          }.bind(this), 500)
 
           var sender = function(f){
             var input = document.getElementById('input');
