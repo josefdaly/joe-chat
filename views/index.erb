@@ -22,7 +22,7 @@
       </div>
       <div class="panel-footer">
         <form id="form">
-          <input class="form-control" type="text" id="input" placeholder="Send a message"></input>
+          <textarea class="form-control" type="text" id="input" placeholder="Send a message"></textarea>
         </form>
       </div>
     </div>
@@ -30,6 +30,12 @@
     <script type="text/javascript">
       window.onload = function(){
         (function(){
+          $('#input').keypress(function(e) {
+            if (e.which == 13) {
+              $('#input').submit();
+            }
+          }.bind(this))
+
           var inFocus;
           var unseenNotifications = 0;
           $(window).focus(function() {
@@ -88,7 +94,7 @@
                   }
                 )
               );
-              input.value = "";
+              setTimeout(function(){$('#input').val('');}.bind(this), 5);
               return false;
             }
           }(document.getElementById('form'));
