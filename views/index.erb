@@ -23,7 +23,7 @@
             <input class="form-control" type="text" id="input" placeholder="Send a message"></input>
 
             <!-- <input class="btn btn-default pull-right" type="button" name="name" value="Send"> -->
-          
+
         </form>
       </div>
     </div>
@@ -46,11 +46,10 @@
             show('websocket closed');
           };
           ws.onmessage = function(m) {
-            debugger
             var msg = JSON.parse(m.data)
             if (msg['type'] == 'group-message'){
               show(msg.content, msg.sender);
-              $("#msgs-wrapper").animate({ scrollTop: $('#msgs-wrapper').height() }, "slow");
+              $("#msgs-wrapper").animate({ scrollTop: $('#msgs-wrapper')[0].scrollHeight }, "slow");
             }
           };
 
