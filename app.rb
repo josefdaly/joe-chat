@@ -9,14 +9,25 @@ class ChatApp < Sinatra::Application
   set :sockets, {}
 
   get '/' do
-    "Setup a chatroom by extending any path off the domain name and sharing the url
-     with your friend."
+    erb :index
+  end
+
+  get '/open_rooms' do
+    content_type :json
+
+    rooms = {}
+    settings.sockets.keys.each do |room_key|
+      user_count = settings.sockets[room_key].count
+      rooms[room_key] = user_count if user_count > 0
+    end
+
+    rooms.to_json
   end
 
   get '/:path' do
     path = params[:path]
     if !request.websocket?
-      erb :index
+      erb :chatroom
     else
       request.websocket do |ws|
 
@@ -62,7 +73,4 @@ class ChatApp < Sinatra::Application
     end
   end
 
-  get '/public_rooms' do
-    'not there yet'
-  end
 end
