@@ -6,7 +6,7 @@ window.onload = function(){
         alert('You must specify a path!')
       } else {
         var path = window.location.origin + '/' + userPath;
-        window.location.replace(path);
+        window.open(path);
       }
     });
 
