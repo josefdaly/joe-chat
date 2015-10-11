@@ -9,22 +9,29 @@
   </head>
   <body>
     <div class="container">
-      <h1>Joe Chat</h1>
-      <p>
-        Hello! Welcome to Joe Chat, a lightweight, multichannel, websockets chat
-        app running on Sinatra. Feel free to make a new chatroom or join an
-        existing one(if there are any). Please keep in mind that Joe Chat can't
-        provide secure conversations, so no discussions regarding personal
-        information please.
-      </p>
-      <label for="basic-url">Make a chat room</label>
-      <div class="input-group">
-        <span class="input-group-addon" id="basic-addon3">https://joe-chat.herokuapp.com/</span>
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Your chat room path">
-      </div>
-      <button id="create" class="btn btn-default center-block">Create Room!</button>
-      <h3>Active Rooms</h3>
-      <div id="active-room-list" class="list-group">
+      <div class="jumbotron">
+        <h1>Joe Chat</h1>
+        <hr>
+        <p>
+          Hello! Welcome to Joe Chat, a lightweight, multichannel, websockets chat
+          app running on Sinatra. Feel free to make a new chatroom or join an
+          existing one(if there are any). Please keep in mind that Joe Chat can't
+          provide secure conversations, so no discussions regarding personal
+          information please.
+        </p>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <label for="basic-url">Make a chat room</label>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">https://joe-chat.herokuapp.com/</span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Your chat room path">
+            </div>
+            <button id="create" class="btn btn-default center-block">Create Room!</button>
+          </div>
+        </div>
+        <h3 id="active-room-header">Active Rooms</h3>
+        <div id="active-room-list" class="list-group">
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="/js/index.js"></script>

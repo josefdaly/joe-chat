@@ -17,13 +17,20 @@ window.onload = function(){
         success: function(response) {
           $roomList = $('#active-room-list');
           $roomList.html("");
+          var propertyCounter = 0;
           for (var property in response) {
             if (response.hasOwnProperty(property)) {
-              debugger
+              propertyCounter++;
               $roomList.append("<a href='" + window.location.origin + "/" + property + "' class='list-group-item'>" + property +
                 "<span class='glyphicon glyphicon-user pull-right'></span><span class='badge'>" + response[property] + "  </span></a>"
               );
             }
+            if (propertyCounter > 0) {
+              $('#active-room-header').show();
+            }
+          }
+          if (propertyCounter == 0) {
+            $('#active-room-header').hide();
           }
         }.bind(this)
       });
