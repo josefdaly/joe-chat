@@ -61,4 +61,8 @@ class ChatApp < Sinatra::Application
       end
     end
   end
+
+  get '/public_rooms' do
+    'not there yet'
+  end
 end

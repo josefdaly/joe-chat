@@ -13,14 +13,19 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  background-image: url("http://toastytech.com/guis/win95desktop2.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .panel-primary {
   width: 600px;
   position: fixed;
   margin-left: calc(50% - 300px);
-  top: 0;
-  bottom: 0;
+  top: 30px;
+  bottom: 30px;
   margin-bottom: 0;
 }
 
