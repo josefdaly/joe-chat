@@ -32,3 +32,6 @@ DEPENDENCIES
   json
   sinatra
   sinatra-websocket
+
+BUNDLED WITH
+   1.10.3
