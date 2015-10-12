@@ -1,5 +1,13 @@
 window.onload = function(){
   (function(){
+
+    $('#handle').keypress(function(k) {
+      debugger
+      if (k.which == 13) {
+        $('#input').focus();
+      }
+    });
+
     $('#input').keypress(function(e) {
       if (e.which == 13) {
         $('#input').submit();
