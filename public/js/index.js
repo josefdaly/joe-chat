@@ -1,6 +1,6 @@
 window.onload = function(){
   (function(){
-    $('#create').click(function() {
+    var goToChat = function() {
       var userPath = $('#basic-url').val();
       if (userPath == "") {
         alert('You must specify a path!')
@@ -8,7 +8,17 @@ window.onload = function(){
         var path = window.location.origin + '/' + userPath;
         window.open(path);
       }
+    };
+
+    $('#create').click(function() {
+      goToChat();
     });
+
+    $('#basic-url').keypress(function(k) {
+      if (k.which == 13) {  
+        goToChat();
+      }
+    })
 
     var fetchAndAppendActiveRooms = function() {
       var url = window.location.origin + '/open_rooms';
