@@ -29,16 +29,16 @@ window.onload = function(){
     var show = function($el){
       return function(msg, sender){
         $el.append("<li class='chat-body'><strong>" +
-          sender + " </strong>" + msg + "</li>");
+          sender + ": </strong>" + msg + "</li>");
       }
     }($("#msgs"));
 
     var ws = new WebSocket('ws://' + window.location.host + window.location.pathname);
     ws.onopen = function() {
-      show('websocket opened');
+      show('websocket opened', 'AI Overlord');
     };
     ws.onclose = function() {
-      show('websocket closed');
+      show('websocket closed', 'AI Overlord');
     };
     ws.onmessage = function(m) {
       var msg = JSON.parse(m.data)
