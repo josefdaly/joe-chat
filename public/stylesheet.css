@@ -7,36 +7,177 @@ li {
 }
 
 body {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: url("http://toastytech.com/guis/win95desktop2.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #008080;
+  font-family: sans-serif;
 }
 
 .panel-primary {
-  width: 600px;
-  position: fixed;
-  margin-left: calc(50% - 300px);
-  top: 30px;
-  bottom: 30px;
-  margin-bottom: 0;
+  color: black;
+  margin-top: 100px;
+  padding: 0;
+  border-radius: 0px;
+  border-width: 2px;
+  background-color: #bfbfbf;
+  border-color: silver gray gray silver;
+}
+
+.panel-primary .panel-heading {
+  background-color: #000080;
+  padding: 2px;
+}
+
+.panel-primary .panel-heading .exit-button {
+  float: right;
+  margin-top: 1px;
+  margin-right: 2px;
+  font-size: 12px;
+  transform: scaleY(0.8);
+  color: black;
+  width: 16px;
+  text-align: center;
+  display: inline-block;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  box-shadow: inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;
+  background-color: silver;
+}
+
+.panel-primary .panel-body {
+  letter-spacing: -.25px;
+}
+
+.panel-primary .panel-body .panel-section {
+  padding-bottom: 30px;
+}
+
+.panel-primary .panel-body .input-group .input-group-addon {
+  color: black;
+  background-color: inherit;
+  border: 0px;
+  padding-left: 0px;
+}
+
+.panel-primary .panel-body .input-group input {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: 1px 0 #fff,0 1px #fff,1px 1px #fff;
+  border-radius: 0px;
+  padding: 2px;
+  height: auto;
+}
+
+.panel-primary .panel-body .btn {
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  box-shadow: inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;
+  background-color: silver;
+  height: auto;
+  border-radius: 0;
+  padding: 2px;
+  width: 160px;
+}
+
+.panel-primary .panel-body .label-header {
+  font-weight: normal;
+  display: block;
+}
+
+.panel-primary .panel-body .list-group {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: 1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
+
+.panel-primary .panel-body .list-group-item {
+  border-radius: 0px;
+  padding: 2px;
+  border: 0px;
+  margin: 0;
+  border-bottom: 1px gray dotted;
+}
+
+.panel-primary .panel-body .list-group-item:last-child {
+  border-bottom: 0px;
 }
 
 #msgs {
 }
 
 #msgs-wrapper {
-  overflow-y: scroll;
-  height: calc(100% - 136px);
+  height: 300px;
 }
 
+#msgs-wrapper ul.chat {
+  height: 100%;
+  background-color: white;
+  overflow-y: scroll;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
+
+#msgs-wrapper ul.chat li{
+  padding: 2px;
+}
+
+
 #input {
-  width: 100%;
-  height: 75px;
+  border-radius: 0px;
+  border: 0px;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid silver;
+  box-shadow: 0 1px #fff inset;
+  padding: 2px;
+  padding-top: 3px;
+  background-color: silver;
+}
+
+.taskbar .taskbar-item {
+  padding: 0 3px;
+  display: inline-block;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  box-shadow: inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;
+  background-color: silver;
+}
+
+.taskbar .taskbar-item.active {
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+  background-color: lightgrey;
+}
+
+.taskbar .start {
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+.taskbar .taskbar-joe-chat {
+  font-weight: bold;
 }

@@ -32,7 +32,7 @@ window.onload = function(){
             if (response.hasOwnProperty(property)) {
               propertyCounter++;
               $roomList.append("<a href='" + window.location.origin + "/" + property + "' class='list-group-item'>" + property +
-                "<span class='glyphicon glyphicon-user pull-right'></span><span class='badge'>" + response[property] + "  </span></a>"
+                "<span class='pull-right'>" + response[property] + "  User(s)</span></a>"
               );
             }
             if (propertyCounter > 0) {

@@ -5,35 +5,50 @@
     <title>Joe Chat</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheet2.css" charset="utf-8">
+    <link rel="stylesheet" href="/stylesheet.css" charset="utf-8">
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Joe Chat</h1>
-        <hr>
-        <p>
-          Hello! Welcome to Joe Chat, a lightweight, multichannel, websockets chat
-          app running on Sinatra. Feel free to make a new chatroom or join an
-          existing one(if there are any). Please keep in mind that Joe Chat can't
-          provide secure conversations, so no discussions regarding personal
-          information please.
-        </p>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <label for="basic-url">Make a chat room</label>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">https://joe-chat.herokuapp.com/</span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Your chat room path">
-            </div>
-            <button id="create" class="btn btn-default center-block">Create Room!</button>
+      <div class="row">
+        <div class="panel panel-primary col-xs-8 col-xs-offset-2">
+          <div class="panel-heading">
+            Welcome to Joe Chat
+            <div class="exit-button">X</div>
           </div>
-        </div>
-        <h3 id="active-room-header">Active Rooms</h3>
-        <div id="active-room-list" class="list-group">
+          <div class="panel-body">
+            <div class="panel-section">
+              <p>
+                Hello! Welcome to Joe Chat, a lightweight, multichannel, websockets chat
+                app running on Sinatra. Feel free to make a new chatroom or join an
+                existing one (if there are any). Please keep in mind that Joe Chat can't
+                provide secure conversations, so no discussions regarding personal
+                information please.
+              </p>
+            </div>
+            <div class="panel-section">
+              <div class="form-group">
+                <label class="label-header" for="basic-url">Make a chat room:</label>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon3">https://joe-chat.herokuapp.com/</span>
+                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Your chat room path">
+                </div>
+              </div>
+              <div class="form-group text-right">
+                <button id="create" class="btn btn-default">Create Room!</button>
+              </div>
+            </div>
+            <div class="panel-section">
+              <label class="label-header" id="active-room-header">Active Rooms: </label>
+              <div id="active-room-list" class="list-group"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <footer class="taskbar">
+      <div class="taskbar-item start">Start</div>
+      <div class="taskbar-item active taskbar-joe-chat">Joe Chat</div>
+    </footer>
     <script type="text/javascript" src="/js/index.js"></script>
   </body>
 </html>
