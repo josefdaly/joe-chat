@@ -14,6 +14,10 @@ window.onload = function(){
       }
     }.bind(this))
 
+    $(function() {
+      $( "#chat-window" ).draggable();
+    });
+
     var inFocus;
     var unseenNotifications = 0;
     $(window).focus(function() {

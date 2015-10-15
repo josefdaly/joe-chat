@@ -9,6 +9,7 @@ li {
 body {
   background-color: #008080;
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 .panel-primary {

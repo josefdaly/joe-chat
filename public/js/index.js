@@ -10,12 +10,16 @@ window.onload = function(){
       }
     };
 
+    $(function() {
+      $( "#home-window" ).draggable();
+    });
+
     $('#create').click(function() {
       goToChat();
     });
 
     $('#basic-url').keypress(function(k) {
-      if (k.which == 13) {  
+      if (k.which == 13) {
         goToChat();
       }
     })
