@@ -7,25 +7,35 @@
     <link rel="stylesheet" href="/stylesheet.css" charset="utf-8">
   </head>
   <body>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <span class="glyphicon glyphicon-comment"></span>
-        <span>Chat! <span id="user-count"></span> User(s)</span>
-        <div class="pull-right">
-          <span>Handle: </span>
-          <input id="handle" type="text" value="Anonymous">
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-primary col-xs-8 col-xs-offset-2">
+          <div class="panel-heading">
+              <span>Chat! <span id="user-count"></span> User(s)</span>
+            <div class="exit-button">X</div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-section">
+              <span>Handle: </span>
+              <input id="handle" type="text" value="Anonymous">
+            </div>
+            <div class="panel-section" id="msgs-wrapper">
+              <ul id="msgs" class="chat"></ul>
+              <a href="#bottom"></a>
+            </div>
+            <div class="panel-section message-form">
+              <form id="form">
+                <textarea class="form-control" type="text" id="input" placeholder="Send a message"></textarea>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="msgs-wrapper" class="panel-body">
-        <ul id="msgs" class="chat"></ul>
-        <a href="#bottom"></a>
-      </div>
-      <div class="panel-footer">
-        <form id="form">
-          <textarea class="form-control" type="text" id="input" placeholder="Send a message"></textarea>
-        </form>
-      </div>
     </div>
+    <footer class="taskbar">
+      <div class="taskbar-item start">Start</div>
+      <div class="taskbar-item active taskbar-joe-chat">Joe Chat</div>
+    </footer>
     <script src="/js/chatroom.js" type="text/javascript"></script>
   </body>
 </html>

@@ -112,13 +112,33 @@ body {
 }
 
 #msgs-wrapper {
-  overflow-y: scroll;
-  height: calc(100% - 136px);
+  height: 300px;
 }
 
+#msgs-wrapper ul.chat {
+  height: 100%;
+  background-color: white;
+  overflow-y: scroll;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
+}
+
+#msgs-wrapper ul.chat li{
+  padding: 2px;
+}
+
+
 #input {
-  width: 100%;
-  height: 75px;
+  border-radius: 0px;
+  border: 0px;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  box-shadow: inset 1px 1px gray,1px 0 #fff,0 1px #fff,1px 1px #fff;
 }
 
 .taskbar {

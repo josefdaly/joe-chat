@@ -20,8 +20,8 @@ window.onload = function(){
 
     var show = function($el){
       return function(msg, sender){
-        $el.append("<li class='left clearfix'><div class='chat-body clearfix'><p><strong>" +
-          sender + " </strong><br>" + msg + "</p></div><hr></li>");
+        $el.append("<li class='chat-body'><strong>" +
+          sender + " </strong>" + msg + "</li>");
       }
     }($("#msgs"));
 
@@ -36,7 +36,7 @@ window.onload = function(){
       var msg = JSON.parse(m.data)
       if (msg['type'] == 'group-message'){
         show(msg.content, msg.sender);
-        $("#msgs-wrapper").animate({ scrollTop: $('#msgs-wrapper')[0].scrollHeight }, "slow");
+        $(".chat").animate({ scrollTop: $('.chat')[0].scrollHeight }, "slow");
         if (inFocus == false) {
           unseenNotifications++;
           $("title").html("(" + unseenNotifications + ") Joe Chat");
