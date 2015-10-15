@@ -10,27 +10,37 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="panel panel-primary col-md-12">
+        <div class="panel panel-primary col-xs-8 col-xs-offset-2">
           <div class="panel-heading">
             Welcome to Joe Chat
             <div class="exit-button">X</div>
           </div>
           <div class="panel-body">
-            <p>
-              Hello! Welcome to Joe Chat, a lightweight, multichannel, websockets chat
-              app running on Sinatra. Feel free to make a new chatroom or join an
-              existing one(if there are any). Please keep in mind that Joe Chat can't
-              provide secure conversations, so no discussions regarding personal
-              information please.
-            </p>
-            <label for="basic-url">Make a chat room</label>
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">https://joe-chat.herokuapp.com/</span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Your chat room path">
+            <div class="panel-section">
+              <p>
+                Hello! Welcome to Joe Chat, a lightweight, multichannel, websockets chat
+                app running on Sinatra. Feel free to make a new chatroom or join an
+                existing one (if there are any). Please keep in mind that Joe Chat can't
+                provide secure conversations, so no discussions regarding personal
+                information please.
+              </p>
             </div>
-            <button id="create" class="btn btn-default center-block">Create Room!</button>
-            <h3 id="active-room-header">Active Rooms</h3>
-            <div id="active-room-list" class="list-group"></div>
+            <div class="panel-section">
+              <div class="form-group">
+                <label class="label-header" for="basic-url">Make a chat room:</label>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon3">https://joe-chat.herokuapp.com/</span>
+                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Your chat room path">
+                </div>
+              </div>
+              <div class="form-group text-right">
+                <button id="create" class="btn btn-default">Create Room!</button>
+              </div>
+            </div>
+            <div class="panel-section">
+              <label class="label-header" id="active-room-header">Active Rooms: </label>
+              <div id="active-room-list" class="list-group"></div>
+            </div>
           </div>
         </div>
       </div>
