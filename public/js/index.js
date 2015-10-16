@@ -4,12 +4,16 @@ window.onload = function(){
     var getAndSetTime = function() {
       date = new Date();
       $('#hours').html(date.getHours() % 12);
-      $('#minutes').html(date.getMinutes());
+      var minutes = date.getMinutes();
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      $('#minutes').html(minutes);
     };
 
     getAndSetTime();
     setInterval(getAndSetTime, 30000);
-    
+
     var goToChat = function() {
       var userPath = $('#basic-url').val();
       if (userPath == "") {

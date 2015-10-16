@@ -4,7 +4,11 @@ window.onload = function(){
     var getAndSetTime = function() {
       date = new Date();
       $('#hours').html(date.getHours() % 12);
-      $('#minutes').html(date.getMinutes());
+      var minutes = date.getMinutes();
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      $('#minutes').html(minutes);
     };
 
     getAndSetTime();
@@ -23,7 +27,7 @@ window.onload = function(){
     }.bind(this))
 
     $(function() {
-      $( "#chat-window" ).draggable();
+      $("#chat-window").draggable();
     });
 
     var inFocus;
