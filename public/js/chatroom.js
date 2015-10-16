@@ -1,8 +1,16 @@
 window.onload = function(){
   (function(){
+    var date;
+    var getAndSetTime = function() {
+      date = new Date();
+      $('#hours').html(date.getHours() % 12);
+      $('#minutes').html(date.getMinutes());
+    };
+
+    getAndSetTime();
+    setInterval(getAndSetTime, 30000);
 
     $('#handle').keypress(function(k) {
-      debugger
       if (k.which == 13) {
         $('#input').focus();
       }
