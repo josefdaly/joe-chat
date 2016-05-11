@@ -9,3 +9,4 @@ Lightweight, multichannel, websockets chat app with a retro twist!
 - [ ] Implement "{whoever} is typing" functionality
 - [ ] Close window when x button is clicked would be cool
 - [ ] Add options for a fullscreen chat client for iframe embedding
+- [ ] Default users to "Joe"
