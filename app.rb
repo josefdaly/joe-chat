@@ -35,8 +35,8 @@ class ChatApp < Sinatra::Application
         ws.onopen do
           if settings.sockets[path]
             settings.sockets[path].push(ws)
-            settings.messages.each do |message|
-                ws.send(message)
+            settings.messages[path].each do |message|
+              ws.send(message)
             end
           else
             settings.sockets[path] = [ws]
@@ -58,25 +58,25 @@ class ChatApp < Sinatra::Application
                 )
               end
             elsif msg['type'] == 'group-message'
+              message = {
+                type: 'group-message',
+                sender: msg['sender'],
+                content: msg['content']
+              }.to_json
               settings.sockets[path].each do |s|
-                message = {
-                  type: 'group-message',
-                  sender: msg['sender'],
-                  content: msg['content']
-                }.to_json
                 s.send(message)
-                settings.messages[path].push
               end
+              settings.messages[path].push(message)
             end
           }
         end
         ws.onclose do
           warn("websocket closed")
           settings.sockets[path].delete(ws)
-          if settings.sockets[path].length < 1
-            settings.sockets.delete(path)
-            settings.messages.delete(path)
-          end
+        #   if settings.sockets[path].length < 1
+        #     settings.sockets.delete(path)
+        #     settings.messages.delete(path)
+        #   end
         end
       end
     end
