@@ -7,6 +7,7 @@ class ChatApp < Sinatra::Application
 
   set :server, 'thin'
   set :sockets, {}
+  set :messages, {}
 
   get '/' do
     erb :index
@@ -34,8 +35,12 @@ class ChatApp < Sinatra::Application
         ws.onopen do
           if settings.sockets[path]
             settings.sockets[path].push(ws)
+            settings.messages.each do |message|
+                ws.send(message)
+            end
           else
             settings.sockets[path] = [ws]
+            settings.messages[path] = []
           end
         end
 
@@ -54,13 +59,13 @@ class ChatApp < Sinatra::Application
               end
             elsif msg['type'] == 'group-message'
               settings.sockets[path].each do |s|
-                s.send(
-                  {
-                    type: 'group-message',
-                    sender: msg['sender'],
-                    content: msg['content']
-                  }.to_json
-                )
+                message = {
+                  type: 'group-message',
+                  sender: msg['sender'],
+                  content: msg['content']
+                }.to_json
+                s.send(message)
+                settings.messages[path].push
               end
             end
           }
@@ -68,9 +73,13 @@ class ChatApp < Sinatra::Application
         ws.onclose do
           warn("websocket closed")
           settings.sockets[path].delete(ws)
+          if settings.sockets[path].length < 1
+            settings.sockets.delete(path)
+            settings.messages.delete(path)
+          end
         end
       end
     end
   end
-
+ 
 end
