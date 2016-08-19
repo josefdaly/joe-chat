@@ -73,10 +73,10 @@ class ChatApp < Sinatra::Application
         ws.onclose do
           warn("websocket closed")
           settings.sockets[path].delete(ws)
-        #   if settings.sockets[path].length < 1
-        #     settings.sockets.delete(path)
-        #     settings.messages.delete(path)
-        #   end
+          if settings.sockets[path].length < 1
+            settings.sockets.delete(path)
+            settings.messages.delete(path)
+          end
         end
       end
     end
